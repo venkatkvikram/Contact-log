@@ -6,11 +6,11 @@ const Users = ({ users, onUserClick }) => {
     return users.map((userItem, index) => {
       const username = userItem?.name?.first + userItem?.name?.last;
       return (
-        <User
+        <User 
           username={username}
           key={index}
           onUserClick={onUserClick}
-          userId={userItem.id.name}
+          userId={userItem.login.uuid}
         />
       );
     });

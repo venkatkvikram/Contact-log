@@ -8,7 +8,11 @@ const User = ({ username, onUserClick, userId }) => {
         padding: 12,
         backgroundColor: "aliceblue",
         borderWidth: 2,
-        borderColor: "black"
+        borderColor: "black",
+        width: "50%",
+        display: "flex",
+        justifyContent: "center"
+
       }}
       onClick={() => onUserClick(userId)}
     >
