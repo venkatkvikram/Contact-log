@@ -4,9 +4,6 @@ import UserDetails from "./components/UserDetails"
 import AddUserInfo from "./components/AddUserInfo"
 import App from "./App"
 
-
-
-
 const AppRoutes = () => {
     return(
         <BrowserRouter>
@@ -18,6 +15,5 @@ const AppRoutes = () => {
         </BrowserRouter>
     )
 }
-
 
 export default AppRoutes;
