@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Users from "./components/Users"
 import UserDetails from "./components/UserDetails"
 import AddUserInfo from "./components/AddUserInfo"
 import App from "./App"
