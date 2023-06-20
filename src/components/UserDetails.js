@@ -10,7 +10,7 @@ const UserDetails = () => {
     const getUserById = async () => {
       try {
         const response = await fetch(
-          `https://c649-45-112-29-195.ngrok-free.app/v1/getRandomUserById?userId=${userId}`
+          `https://66ae-45-112-29-230.ngrok-free.app/v1/getRandomUserById?userId=${userId}`
         );
         const data = await response.json();
         setUserInfo(data?.data);
@@ -26,11 +26,7 @@ const UserDetails = () => {
     <div>
       <h1>Users Details</h1>
       <div>
-        <img
-          alt="Profile"
-          src={userInfo?.picture?.large}
-          style={{ borderRadius: "50%", padding: 12, margin: 12 }}
-        />
+        <img alt="Profile" src={userInfo?.picture?.large} style={{ borderRadius: "50%", padding: 12, margin: 12 }} />
         <ul
           style={{
             listStyle: "none",
@@ -38,8 +34,7 @@ const UserDetails = () => {
           }}
         >
           <li>
-            Name : {userInfo?.name?.title} {userInfo?.name?.last}{" "}
-            {userInfo?.name?.first}{" "}
+            Name : {userInfo?.name?.title} {userInfo?.name?.last} {userInfo?.name?.first}{" "}
           </li>
           <li>UserName: {userInfo?.login?.username}</li>
           <li>Gender : {userInfo?.gender} </li>

@@ -4,14 +4,14 @@ const User = ({ username, onUserClick, userId }) => {
   return (
     <div
       style={{
-        margin: 6,
+        margin: "5px auto",
         padding: 12,
-        backgroundColor: "aliceblue",
-        borderWidth: 2,
-        borderColor: "black",
-        width: "50%",
+        backgroundColor: "#fff685",
+        border: "2px solid black",
+        width: "20%",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
+        alignItems: "center"
 
       }}
       onClick={() => onUserClick(userId)}
