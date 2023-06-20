@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const UserDetails = () => {
   const [userInfo, setUserInfo] = useState({});
   const { userId } = useParams();
+
   const navigate = useNavigate();
 
   useEffect(() => {
