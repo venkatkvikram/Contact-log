@@ -16,7 +16,7 @@ const User = ({ username, onUserClick, userId }) => {
       }}
       onClick={() => onUserClick(userId)}
     >
-      <span>{username} - {userId}</span>
+      <span>{username}</span>
     </div>
   );
 };

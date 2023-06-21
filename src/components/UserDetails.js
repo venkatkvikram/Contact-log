@@ -11,7 +11,7 @@ const UserDetails = () => {
     const getUserById = async () => {
       try {
         const response = await fetch(
-          `https://66ae-45-112-29-230.ngrok-free.app/v1/getRandomUserById?userId=${userId}`
+          `https://e0e5-45-112-29-235.ngrok-free.app/v1/getRandomUserById?userId=${userId}`
         );
         const data = await response.json();
         setUserInfo(data?.data);
