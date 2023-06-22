@@ -30,6 +30,9 @@ const AddUserInfo = () => {
     console.log({prevUsers})
     return [...prevUsers, userInfo]
   });
+  // localStorage.getItem('users')
+
+  // users.push(userInfo);
   
   console.log(obj)
   }

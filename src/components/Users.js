@@ -20,6 +20,7 @@ const Users = () => {
     if (results.data.length) {
       setLoader(false);
       setUsers(results.data);
+      // localStorage.setItem('users', results.data); **** set UsersList data here ***
     }
     console.log({ results });
   };
@@ -42,6 +43,7 @@ const Users = () => {
   }
 
   const renderUsers = () => {
+    // use localStorage users list instead localState users here
     return users.map((userItem, index) => {
       const username = userItem?.name?.first + userItem?.name?.last;
       return (
