@@ -25,6 +25,12 @@ const AddUserInfo = () => {
   const handleSubmit = () => {
   //  setUsers({ ...users, ...userInfo })
   const obj = { ...users, ...userInfo }
+
+  setUsers(prevUsers => {
+    console.log({prevUsers})
+    return [...prevUsers, userInfo]
+  });
+  
   console.log(obj)
   }
 

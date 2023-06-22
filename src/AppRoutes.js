@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import UserDetails from "./components/UserDetails"
-import AddUserInfo from "./components/AddUserInfo"
-import App from "./App"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserDetails from "./components/UserDetails";
+import AddUserInfo from "./components/AddUserInfo";
+import Users from "./components/Users";
 
 const AppRoutes = () => {
-    return(
+    return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App />} />
+                <Route path="/" element={<Users />} />
                 <Route path="/user-details/:userId" element={<UserDetails />} />
                 <Route path="/add-user-info" element={<AddUserInfo />} />
             </Routes>

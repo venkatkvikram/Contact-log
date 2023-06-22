@@ -1,13 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import AppRoutes from "./AppRoutes";
+import App from "./App";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <AppRoutes />
+    <App />
   </StrictMode>
 );
