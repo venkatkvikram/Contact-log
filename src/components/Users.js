@@ -5,7 +5,7 @@ import User from "./User";
 import { UsersContext } from "../utils";
 
 // API URL: https://randomuser.me/api/?limit=10
-const apiUrl = "https://e0e5-45-112-29-235.ngrok-free.app/v1/getRandomUsers";
+const apiUrl = "https://8ce9-45-112-29-248.ngrok-free.app/v1/getRandomUsers";
 
 const Users = () => {
   const [isLoading, setLoader] = useState(false);
@@ -21,7 +21,8 @@ const Users = () => {
       setLoader(false);
       setUsers(results.data);
       const formattedData = formatUsersData(results.data);
-      localStorage.setItem('users', JSON.stringify(formattedData)); //set UsersList data here ***
+      console.log(formattedData)
+     localStorage.setItem('users', JSON.stringify(formattedData)); //set UsersList data here ***
     }
     console.log({ results });
   };
@@ -37,7 +38,7 @@ const Users = () => {
 
 
 
-  const formatUsersData = (users) => {
+  const formatUsersData = (users = []) => {
     return users.map((userItem, index) => {
       return {
         id: index,
@@ -70,8 +71,8 @@ const Users = () => {
     // use localStorage users list instead localState users here
     const listData = localStorage.getItem('users') || '[]'
     const parsedData = JSON.parse(listData);
-    const renderData = [<h1 id="headerList">Users List({parsedData.length})</h1>];
-    parsedData.map((userItem, index) => {
+    const renderData = [<h1 id="headerList">Users List({parsedData?.length})</h1>];
+    (parsedData || []).map((userItem, index) => {
       renderData.push(<User 
         username={userItem?.username}
         key={index}

@@ -42,7 +42,7 @@ const AddUserInfo = () => {
   return (
     <div className="form container">
       <label>Name</label>
-      <input type="text" name="username" className="user-name" value={userInfo?.username} onChange={handleOnChangeTextField} />
+      <input type="text" name="username" className="user-name" onChange={handleOnChangeTextField} />
       <label>Age</label>
       <input type="number" name="age" className="user-age" onChange={handleOnChangeTextField} />
       <label>Contact No</label>

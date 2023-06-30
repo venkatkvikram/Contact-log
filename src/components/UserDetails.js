@@ -8,20 +8,30 @@ const UserDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getUserById = async () => {
-      try {
-        const response = await fetch(
-          `https://e0e5-45-112-29-235.ngrok-free.app/v1/getRandomUserById?userId=${userId}`
-        );
-        const data = await response.json();
-        setUserInfo(data?.data);
-      } catch (error) {
-        console.error("Error retrieving user details:", error);
-      }
-    };
+    // const getUserById = async () => {
+    //   try {
+    //     const response = await fetch(
+    //       `https://8ce9-45-112-29-248.ngrok-free.app/v1/getRandomUserById?userId=${userId}`
+    //     );
+    //     const data = await response.json();
+    //     setUserInfo(data?.data);
+    //   } catch (error) {
+    //     console.error("Error retrieving user details:", error);
+    //   }
+    // };
 
-    getUserById();
+    
+    // getUserById();
+
+    const individualDetails = localStorage.getItem("users")
+    console.log(individualDetails)
+    const parseDetails = JSON.parse(individualDetails)
+    const userData = parseDetails.find((item)=> {
+      return item.id === Number(userId)
+    })
   }, [userId]);
+
+  console.log(userInfo)
 
   return (
     <div>
