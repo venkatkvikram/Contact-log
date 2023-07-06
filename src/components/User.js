@@ -1,5 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import "../styles/User.css";
 
 const User = ({ username, onUserClick, userId }) => {
   const navigation = useNavigate();
@@ -15,25 +18,20 @@ const User = ({ username, onUserClick, userId }) => {
   };
 
   const onEditUser = (id) => {
-    navigation(`/edit-user-info/${userId}`)
-  }
+    navigation(`/edit-user-info/${userId}`);
+  };
 
   return (
-    <div
-      style={{
-        margin: "5px auto",
-        padding: 12,
-        backgroundColor: "#fff685",
-        border: "2px solid black",
-        width: "60%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="user-information">
       <span onClick={() => onUserClick(userId)}>{username}</span>
-      <button onClick={() => onDeleteUser(userId)}>Delete user</button>
-      <button onClick={() => onEditUser(userId)}>Edit user</button>
+      <div className="action-icons">
+        <button className="action-btn" style={{ marginRight: 10 }} onClick={() => onDeleteUser(userId)}>
+          <FontAwesomeIcon className="action-icon" icon={faTrash}/>
+        </button>
+        <button className="action-btn" onClick={() => onEditUser(userId)}>
+          <FontAwesomeIcon className="action-icon" icon={faPenToSquare} />
+        </button>
+      </div>
     </div>
   );
 };

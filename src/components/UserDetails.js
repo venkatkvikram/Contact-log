@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/UserDetails.css";
 
 const UserDetails = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -20,44 +21,41 @@ const UserDetails = () => {
     //   }
     // };
 
-    
     // getUserById();
 
-    const individualDetails = localStorage.getItem("users")
-    console.log(individualDetails)
-    const parseDetails = JSON.parse(individualDetails)
-    const userData = parseDetails.find((item)=> {
-      return item.id === Number(userId)
-    })
+    const individualDetails = localStorage.getItem("users");
+    console.log(individualDetails);
+    const parseDetails = JSON.parse(individualDetails);
+    const userData = parseDetails.find((item) => {
+      return item.id === Number(userId);
+    });
+    setUserInfo(userData);
   }, [userId]);
 
-  console.log(userInfo)
+  console.log(userInfo);
 
   return (
-    <div>
-      <h1>Users Details</h1>
-      <div>
-        <img alt="Profile" src={userInfo?.picture?.large} style={{ borderRadius: "50%", padding: 12, margin: 12 }} />
-        <ul
-          style={{
-            listStyle: "none",
-            textAlign: "left",
-          }}
-        >
-          <li>
+    <div className="userdetails-container">
+      <h1 className="userdetails-heading">Users Details</h1>
+      <div className="userdetails-body">
+        {/* <img alt="Profile" src={userInfo?.picture?.large} style={{ borderRadius: "50%", padding: 12, margin: 12 }} /> */}
+        <ul className="userdetails-ul">
+          {/* <li>
             Name : {userInfo?.name?.title} {userInfo?.name?.last} {userInfo?.name?.first}{" "}
-          </li>
-          <li>UserName: {userInfo?.login?.username}</li>
+          </li> */}
+          <li>Full Name: {userInfo?.username}</li>
           <li>Gender : {userInfo?.gender} </li>
-          <li>Age : {userInfo?.dob?.age}</li>
+          <li>Age : {userInfo?.age}</li>
           <li>Email : {userInfo?.email} </li>
-          <li>Mobile : {userInfo?.phone} </li>
-          <li>City: {userInfo?.location?.city} </li>
-          <li>Country : {userInfo?.location?.country} </li>
-          <li>State : {userInfo?.location?.state} </li>
+          <li>Mobile : {userInfo?.mobile} </li>
+          <li>City: {userInfo?.city} </li>
+          <li>Country : {userInfo?.country} </li>
+          <li>State : {userInfo?.state} </li>
         </ul>
       </div>
-      <button onClick={() => navigate(-1)}>Go Back</button>
+      <button className="goback-btn" onClick={() => navigate(-1)}>
+        Go Back
+      </button>
     </div>
   );
 };
