@@ -5,6 +5,7 @@ import "../styles.css";
 import User from "./User";
 import { UsersContext } from "../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 // API URL: https://randomuser.me/api/?limit=10
 const apiUrl = "https://3e8b-45-112-29-230.ngrok-free.app/v1/getRandomUsers";
@@ -15,7 +16,6 @@ const Users = () => {
   const { users, setUsers } = useContext(UsersContext);
 
   const navigate = useNavigate();
-
 
   const listData = localStorage.getItem("users") || "[]";
   const parsedData = JSON.parse(listData);
@@ -72,8 +72,12 @@ const Users = () => {
 
   const renderHeader = () => {
     return (
-      <div id="headerDiv">
-        <h1 id="headerList">Users List({parsedData?.length})</h1>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "24px 0px" }}>
+        <h2 id="headerList">Users List({parsedData?.length})</h2>
+        <div className="add-action-btn" onClick={enterDetails}>
+          <FontAwesomeIcon icon={faCirclePlus} size="1x" />
+          <span className="add-icon">Add User</span>
+        </div>
       </div>
     );
   };
@@ -91,10 +95,11 @@ const Users = () => {
   };
 
   return (
-    <div>
-      {renderHeader()}
-      {renderUsers()}
-      <button onClick={enterDetails}>Add user</button>
+    <div className="home-container">
+      <div style={{ width: "60%" }}>
+        {renderHeader()}
+        {renderUsers()}
+      </div>
     </div>
   );
 };

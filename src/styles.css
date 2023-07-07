@@ -1,17 +1,14 @@
 .App {
-  font-family: sans-serif;
-  height: 100vh;  /*takes up entire height of the viewport*/
+  height: 100vh; /*takes up entire height of the viewport*/
   overflow-y: scroll; /*makes the content not to overflow outside the container*/
   width: 100%;
 }
 
-
-
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-
 
 button {
   word-wrap: break-word;
@@ -20,7 +17,23 @@ button {
   justify-content: space-between;
 }
 
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-#headerDiv {
-  text-align: center;
+.add-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ee5424;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-weight: 600;
+}
+
+.add-icon {
+  margin-left: 8px;
 }
