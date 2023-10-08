@@ -29,11 +29,11 @@ const AddUserInfo = () => {
     });
     const listData = localStorage.getItem("users");
     const usersList = JSON.parse(listData);
-    usersList.push({ ...userInfo, id: usersList.length + 1 }``);
+    usersList.push({ id: usersList.length, ...userInfo});
     console.log(usersList);
     localStorage.setItem("users", JSON.stringify(usersList));
     navigate("/");
-    console.log(obj);
+    // console.log(obj);
   };
 
   return (
