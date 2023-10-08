@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useMemo, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { UsersContext } from "../utils";
+import { UsersContext, parseOrStringifyData } from "../utils";
 
 const EditUserInfo = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -13,22 +13,22 @@ const EditUserInfo = () => {
     const inData = localStorage.getItem("users");
     const parseData = JSON.parse(inData);
     const userData = parseData.find((userItem) => {
-      // console.log({userItem, userId, storedUserId: userItem.id})
       return userItem.id === Number(userId); //the userId we get by params is a string and it won't match with the id which is a number
     });
-    console.log({ userData, inData, parseData });
+    // console.log({ userData, inData, parseData });
     setUserInfo(userData);
   }, []);
 
   const handleOnChangeTextField = (event) => {
     const { name, value } = event?.target;
+    console.log(name, value);
     setUserInfo({
       ...userInfo,
       [name]: value,
     });
   };
 
-  console.log(userInfo);
+  // console.log(userInfo);
 
   const handleUpdate = () => {
     const listData = localStorage.getItem("users");
@@ -42,8 +42,14 @@ const EditUserInfo = () => {
     });
     localStorage.setItem("users", JSON.stringify(updatedData));
     navigate("/");
-    console.log(updatedData);
+    // console.log(updatedData);
   };
+
+  const list = localStorage.getItem("users");
+  // console.log(parseOrStringifyData(list, true));
+  const getCountriesList = parseOrStringifyData(list, true)?.map?.((item) => item?.country);
+  // console.log(getCountriesList);
+  // console.log({ userInfo });
 
   useEffect(() => {}, []);
 
@@ -76,9 +82,16 @@ const EditUserInfo = () => {
         onChange={handleOnChangeTextField}
       />
       <label>DOB</label>
-      <input type="date" name="date" className="user-dob" value={userInfo?.date} onChange={handleOnChangeTextField} />
+      <input
+        type="date"
+        name="date"
+        className="user-dob"
+        value={userInfo?.date}
+        onChange={handleOnChangeTextField}
+        disabled
+      />
       <label>City</label>
-      <input type="text" name="city" className="user-city" value={userInfo?.city} onChange={handleOnChangeTextField} />
+      <input type="text" name="city" className="user-city" value={userInfo?.city}  />
       <label>State</label>
       <input
         type="text"
@@ -88,10 +101,10 @@ const EditUserInfo = () => {
         onChange={handleOnChangeTextField}
       />
       <label>Country</label>
-      <select name="country">
-        <option value="india">India</option>
-        <option value="usa">USA</option>
-        <option value="australia">Australia</option>
+      <select name="country" value={userInfo?.country} onChange={handleOnChangeTextField}>
+        {getCountriesList?.map((item) => (
+          <option value={item}>{item}</option>
+        ))}
       </select>
       <label>Gender</label>
       <div onChange={handleOnChangeTextField}>

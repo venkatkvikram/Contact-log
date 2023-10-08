@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 // API URL: https://randomuser.me/api/?limit=10
-const apiUrl = "https://3e8b-45-112-29-230.ngrok-free.app/v1/getRandomUsers";
+const apiUrl = "https://33f3-202-65-134-60.ngrok-free.app/v1/getRandomUsers";
 
 const Users = () => {
   const [isLoading, setLoader] = useState(false);

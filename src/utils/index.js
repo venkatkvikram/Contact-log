@@ -8,5 +8,13 @@ const UsersContext = createContext({
 })
 
 
-export {UsersContext}
+const parseOrStringifyData = (data, isParsed = false) => {
+    if(isParsed) {
+        return JSON.parse(data)
+    }
+    return JSON.stringify(data)
+}
+
+
+export {UsersContext, parseOrStringifyData}
 

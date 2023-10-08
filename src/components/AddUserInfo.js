@@ -53,23 +53,14 @@ const AddUserInfo = () => {
           <div>
             <input
               type="number"
-              name="age"
-              className="inputField"
-              onChange={handleOnChangeTextField}
-              placeholder="Age"
-            />
-          </div>
-        </div>
-        <div style={{ display: "flex" }}>
-          <div>
-            <input
-              type="number"
               name="contact-no"
               className="inputField"
               onChange={handleOnChangeTextField}
               placeholder="Mobile Number"
             />
           </div>
+        </div>
+        <div style={{ display: "flex" }}>
           <div>
             <input
               type="email"
@@ -79,9 +70,7 @@ const AddUserInfo = () => {
               placeholder="Email address"
             />
           </div>
-        </div>
-        <div style={{ display: "flex" }}>
-          <div style={{ display: "contents" }}>
+          <div>
             <input
               style={{ width: "89%" }}
               type="date"
@@ -90,7 +79,9 @@ const AddUserInfo = () => {
               onChange={handleOnChangeTextField}
             />
           </div>
-          <div>
+        </div>
+        <div style={{ display: "flex" }}>
+          <div style={{ display: "contents" }}>
             <input
               type="text"
               name="city"
@@ -99,8 +90,6 @@ const AddUserInfo = () => {
               placeholder="Enter City"
             />
           </div>
-        </div>
-        <div style={{ display: "flex" }}>
           <div>
             <input
               type="text"
@@ -110,14 +99,14 @@ const AddUserInfo = () => {
               placeholder="Enter State"
             />
           </div>
-          <div style={{ display: "flex" }}>
-            <div>
-              <select style={{ width: "145%" }} name="country" className="inputField">
-                <option value="india">India</option>
-                <option value="usa">USA</option>
-                <option value="australia">Australia</option>
-              </select>
-            </div>
+        </div>
+        <div style={{ display: "flex" }}>
+          <div>
+            <select style={{ width: "145%" }} name="country" className="inputField">
+              <option value="india">India</option>
+              <option value="usa">USA</option>
+              <option value="australia">Australia</option>
+            </select>
           </div>
         </div>
         <div style={{ display: "flex" }}>
@@ -140,7 +129,7 @@ const AddUserInfo = () => {
         </div>
         <div style={{ display: "flex" }}>
           <button className="submitUserDetails" type="submit" onClick={handleSubmit}>
-          <FontAwesomeIcon icon={faPaperPlane} />
+            <FontAwesomeIcon icon={faPaperPlane} />
             Submit
           </button>
         </div>
